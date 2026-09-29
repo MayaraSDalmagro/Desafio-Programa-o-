@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Logística</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Painel de Agendamento</h1>
+        <!-- Módulo 01: Seleção por classe -->
+        <div class="relogio-sistema">00:00:00</div>
+        <button id="btn-tema" class="btn">Modo Escuro</button>
+    </header>
+
+    <main class="container">
+        <!-- Formulário de Agendamento -->
+        <div class="card" id="card-form">
+            <h2>Novo Agendamento</h2>
+            
+            <label for="motorista">Motorista:</label>
+            <input type="text" id="motorista" placeholder="Nome do motorista">
+
+            <label for="placa">Matrícula/Placa (7 letras/números):</label>
+            <input type="text" id="placa" maxlength="7" placeholder="ABC1D23">
+
+            <div class="grupo-opcoes">
+                <strong>Operação:</strong><br>
+                <input type="radio" name="operacao" id="op-carga" value="Carga" checked>
+                <label for="op-carga">Carga</label>
+                
+                <input type="radio" name="operacao" id="op-descarga" value="Descarga">
+                <label for="op-descarga">Descarga</label>
+            </div>
+
+            <div class="grupo-opcoes">
+                <strong>Expedição:</strong><br>
+                <input type="radio" name="expedicao" id="exp-i" value="EXPI" checked>
+                <label for="exp-i">EXPI (Normal)</label>
+                
+                <input type="radio" name="expedicao" id="exp-ii" value="EXPII">
+                <label for="exp-ii">EXPII (Restrita)</label>
+            </div>
+
+            <label for="senha">Senha (só para EXPII):</label>
+            <div class="grupo-senha">
+                <input type="password" id="senha" disabled placeholder="Digite 1234">
+                <button id="btn-ver-senha" class="btn" type="button">Ver</button>
+            </div>
+
+            <div class="horarios">
+                <strong>Escolha um horário:</strong><br>
+                <button type="button" class="btn btn-horario" value="08:00">08:00</button>
+                <button type="button" class="btn btn-horario" value="10:00">10:00</button>
+                <button type="button" class="btn btn-horario" value="13:00">13:00</button>
+                <button type="button" class="btn btn-horario" value="15:00">15:00</button>
+            </div>
+
+            <p id="horario-selecionado">Nenhum horário selecionado</p>
+            <button id="btn-agendar" class="btn btn-destaque" disabled>Agendar Veículo</button>
+        </div>
+
+        <!-- Estado das Docas -->
+        <div class="card" id="card-status-expi">
+            <h2>Doca EXPI</h2>
+            <img id="img-status-expi" src="./img/livre.png" alt="Doca Livre" width="130">
+            <p id="texto-status-expi" class="status-texto cor-livre">LIVRE</p>
+        </div>
+
+        <div class="card" id="card-status-expii">
+            <h2>Doca EXPII</h2>
+            <img id="img-status-expii" src="./img/livre.png" alt="Doca Livre" width="130">
+            <p id="texto-status-expii" class="status-texto cor-livre">LIVRE</p>
+        </div>
+
+        <!-- Cronómetro -->
+        <div class="card">
+            <h2>Cronómetro de Operação</h2>
+            <label for="select-doca">Escolher doca:</label>
+            <select id="select-doca">
+                <option value="EXPI">Doca EXPI</option>
+                <option value="EXPII">Doca EXPII</option>
+            </select>
+            
+            <div class="display-tempo">00:00</div>
+            <div class="controles-tempo">
+                <button id="btn-iniciar" class="btn">Iniciar</button>
+                <button id="btn-pausar" class="btn" disabled>Pausar</button>
+                <button id="btn-reset" class="btn">Reset</button>
+            </div>
+        </div>
+
+        <!-- Lista -->
+        <div class="card card-lista">
+            <h2>Agendamentos do Dia</h2>
+            <div id="lista-agendamentos">Ainda não há veículos agendados.</div>
+        </div>
+    </main>
+
+    <!-- Notificação escondida (Módulo 05) -->
+    <div id="notificacao" class="escondido">Ação realizada com sucesso!</div>
+</body>
+</html>

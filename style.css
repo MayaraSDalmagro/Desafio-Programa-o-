@@ -1,0 +1,144 @@
+/* Variáveis para facilitar a mudança de cores (Módulo 03) */
+:root {
+    --fundo-pagina: #f4f8f5;
+    --fundo-card: #ffffff;
+    --cor-texto: #333333;
+    --cor-verde: #2f7d4f;
+    --cor-verde-claro: #46a86f;
+    --cor-vermelho: #d9534f;
+}
+
+/* Quando o body ganhar a classe 'modo-escuro', as cores mudam */
+body.modo-escuro {
+    --fundo-pagina: #0f2a1d;
+    --fundo-card: #1a422d;
+    --cor-texto: #e0e0e0;
+}
+
+body {
+    background-color: var(--fundo-pagina);
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.relogio-sistema {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--fundo-card);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1; 
+    min-width: 300px;
+}
+
+.card-ativo {
+    border: 2px solid var(--cor-verde);
+    box-shadow: 0 0 15px var(--cor-verde);
+}
+
+.card img {
+    margin-top: 20px;
+    max-width: 150px;
+}
+
+.card-lista {
+    min-width: 100%; 
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+.grupo-opcoes {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.grupo-senha {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background-color: var(--cor-verde);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+.btn-destaque {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.horarios {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.display-tempo {
+    font-size: 3em;
+    margin: 20px 0;
+    color: var(--cor-verde);
+}
+
+/* Cores dos textos de estado */
+.status-texto {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.cor-livre { color: var(--cor-verde); }
+.cor-ocupada { color: var(--cor-vermelho); }
+
+#notificacao {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--cor-verde-claro);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.escondido {
+    display: none;
+}
+
+.item-lista {
+    background-color: var(--fundo-pagina);
+    padding: 15px;
+    margin-top: 10px;
+    border-left: 5px solid var(--cor-verde);
+    text-align: left;
+}
